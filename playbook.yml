@@ -34,3 +34,8 @@
   roles:
    - role: cliente
    - role: apache2
+
+- hosts: cliente2
+  become: true
+  roles:
+   - role: cliente
