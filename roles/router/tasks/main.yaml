@@ -1,0 +1,29 @@
+- name: "Instalando iptables"
+  apt:
+    pkg: iptables 
+
+- name: "Regla PREROUTING iptables"
+  command: iptables -t nat -A PREROUTING -p tcp --dport 80 -i {{ interface1 }} -j DNAT --to {{ ip_reserva1 }}
+
+- name: "Regla POSTROUTING iptables"
+  command: iptables -t nat -A POSTROUTING -s {{ table_red1_network }} -o {{ interface1 }} -j MASQUERADE
+
+- name: Instalación iptables-persistent
+  apt:
+    pkg: iptables-persistent
+
+- name: Habilitando ipv4 forwarding
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+
+- name: "Configurando red..."
+  template:
+    src: interfaces-router
+    dest: /etc/network/interfaces
+    owner: root
+    group: root
+    mode: '0644'
+
+  notify: restart networking-r

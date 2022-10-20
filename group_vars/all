@@ -1,0 +1,18 @@
+bd_name: wordpress_bd
+bd_user: wordpress_user
+bd_pass: asd123
+dhcpinterface: "enp7s0"
+table_red1_network: 10.0.40.0/24
+red1_network: 10.0.40.0
+red1_mask: 255.255.255.0
+red1_range_start: 10.0.40.20
+red1_range_end: 10.0.40.80
+red1_gateway: 10.0.40.1
+red1_default_time: 3600
+red1_max_time: 7200
+mac_servidor: 52:54:00:16:0b:38
+ip_reserva1: 10.0.40.2
+interface1: enp1s0
+interface2: enp7s0
+interface1client: enp1s0
+

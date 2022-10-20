@@ -1,0 +1,9 @@
+- name: "Configurando red cliente..."
+  template:
+    src: interfaces-client
+    dest: /etc/network/interfaces
+    owner: root
+    group: root
+    mode: '0644'
+ 
+  notify: restart networking-c

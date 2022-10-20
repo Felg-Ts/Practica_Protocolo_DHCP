@@ -1,0 +1,9 @@
+auto {{ interface1 }}
+iface {{ interface1 }} inet dhcp
+
+auto {{ interface2 }}
+iface {{ interface2 }} inet static
+
+address {{ red1_gateway }}
+netmask {{ red1_mask }}
+
